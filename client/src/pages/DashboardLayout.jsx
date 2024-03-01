@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { SmallSideBar, BigSideBar, Navbar } from '../components';
-import { useContext, useState } from 'react';
-// const DashBoard=createContext();
+import { useContext, useState,createContext } from 'react';
+const DashBoard=createContext();
 
 const DashboardLayout = () => {
   const user = { user: 'john' };
@@ -11,6 +11,7 @@ const DashboardLayout = () => {
     console.log('dark theme');
   };
   const toggleSideBar = () => {
+    console.log('toggedsidebar')
     setShowSideBar(!showSideBar);
   };
   const logoutUser = () => {
@@ -18,22 +19,28 @@ const DashboardLayout = () => {
   };
   return (
     <>
-      <main className="grid grid-cols-1 lg:grid-cols-12">
-        <div className="hidden lg:block h-screen   lg:col-span-1">
-          <BigSideBar  />
-        </div>
-        <div className="  lg:col-span-11">
-          <div className="lg:hidden">
-            <SmallSideBar />
+    <div>
+
+      <DashBoard.Provider value={{user,logoutUser,toggleSideBar,toggleDarkTheme,isDarkTheme,showSideBar}}>
+        <main className="grid grid-cols-1 lg:grid-cols-12">
+          <div className="hidden lg:block h-screen   lg:col-span-1">
+            <BigSideBar />
           </div>
-          <Navbar />
-          <div className="py-8 mx-auto w-[90%] ">
-            <Outlet />
+          <div className="  lg:col-span-11">
+            <div className="lg:hidden">
+              <SmallSideBar />
+            </div>
+            <Navbar />
+            <div className="py-8 mx-auto w-[90%] ">
+              <Outlet />
+            </div>
           </div>
-        </div>
-      </main>
+        
+        </main>
+      </DashBoard.Provider>
+    </div>
     </>
   );
 };
-// export const useDash=useContext(DashBoard);
+export const useDashBoard =()=> useContext(DashBoard);
 export default DashboardLayout;
