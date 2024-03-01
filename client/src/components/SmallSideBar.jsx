@@ -56,4 +56,5 @@ const SmallSideBar = () => {
     </>
   );
 };
+
 export default SmallSideBar;
