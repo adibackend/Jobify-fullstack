@@ -5,7 +5,7 @@ const Landing = () => {
       <Logo  />
       <div className="relative h-[calc(100vh-200px)]  my-auto">
         <div className="flex items-center justify-center space-x-11 h-full  ">
-          <div className="space-y-4">
+          <div className="space-y-4 ml-4">
             <h1 className="text-8xl font-bold">
               Job <span className="text-[#2CB1BC]">Tracking </span>
               App
