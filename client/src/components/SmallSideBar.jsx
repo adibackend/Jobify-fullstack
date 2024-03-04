@@ -26,9 +26,9 @@ const SmallSideBar = () => {
                     const { text, path, icon } = Links;
                     return (
                       <>
-                        <div className="grid place-items-center">
+                        <div className="">
                           <NavLink to={path} key={text} className="text-xl  ">
-                            <div className="flex space-x-4 items-center">
+                            <div className="flex ">
                               <label
                                 htmlFor={text}
                                 className="hover:text-[#2CB1BC]"
